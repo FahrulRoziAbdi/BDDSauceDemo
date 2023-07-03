@@ -21,91 +21,86 @@ public class CartSteps {
 
 
     @When("User sorting product list by {string}")
-    public void selectProductSort(String sorting) throws InterruptedException {
+    public void selectProductSort(String sorting){
         CartPage cartPage = new CartPage(webDriver);
         cartPage.selectProductFilter(sorting);
-        Thread.sleep(1000);
+
     }
 
     @And("User pick product Test.allTheThings T-Shirt Red")
-    public void AddtoCart() throws InterruptedException {
+    public void addtoCart(){
         CartPage cartPage = new CartPage(webDriver);
         cartPage.clickButtonAdd();
-        Thread.sleep(1000);
+
     }
 
     @And("User pick product Sauce Labs Onesie")
-    public void AddtoCart2() throws InterruptedException {
+    public void addtoCart2(){
         CartPage cartPage = new CartPage(webDriver);
         cartPage.clickButtonAdd2();
-        Thread.sleep(1000);
+
     }
 
     @And("User checkout product")
-    public void AddtoCart3() throws InterruptedException {
+    public void addtoCart3(){
         CartPage cartPage = new CartPage(webDriver);
         cartPage.clickCart();
-        Thread.sleep(1000);
+
     }
 
-    @And("User verify that products in a cartlist")
-    public void verifyCartList() throws InterruptedException {
+    @And("User verify that products in a cart list")
+    public void verifyCartList(){
         CheckOut checkOut = new CheckOut(webDriver);
         Assert.assertTrue(checkOut.isDisplayCheckOutPage());
-        Thread.sleep(2000);
+
     }
 
-    @Then("User remove Test.allTheThings T-Shirt Red from Cart")
-    public void removeProduct() throws InterruptedException {
+    @And("User remove Test.allTheThings T-Shirt Red from Cart")
+    public void removeProduct(){
         CheckOut checkOut = new CheckOut(webDriver);
         checkOut.setRemoveProduct();
-        Thread.sleep(1000);
+
     }
 
     @And("User click checkout")
-    public void checkoutProduct() {
+    public void checkoutProduct(){
         CheckOut checkOut = new CheckOut(webDriver);
         checkOut.clickCheckOut();
     }
 
     @Then("User already on check out overview page")
-    public void verifyCheckOutInfoPage() throws InterruptedException {
+    public void verifyCheckOutInfoPage(){
         CheckOut checkOut = new CheckOut(webDriver);
         Assert.assertTrue(checkOut.isDisplayCheckOutOverviewPage());
-        Thread.sleep(2000);
+
     }
 
-    @And("User input {string} as firstname, input {string} as lastname, and input {string} as postcode")
-    public void inputInformation(String fn, String ln, String pc) throws InterruptedException {
+    @When("User input {string} as firstname, input {string} as lastname, and input {string} as postcode")
+    public void inputInformation(String fn, String ln, String pc){
         CheckOut checkOutPage = new CheckOut(webDriver);
         checkOutPage.setFirstName(fn);
-        Thread.sleep(1000);
         checkOutPage.setLastName(ln);
-        Thread.sleep(1000);
         checkOutPage.setPostalCode(pc);
-        Thread.sleep(1000);
         checkOutPage.clickContinue();
 
     }
     @Then("User already on checkout summary page")
-    public void verifyCheckOutSummaryPage() throws InterruptedException {
+    public void verifyCheckOutSummaryPage(){
         CheckOut checkOut = new CheckOut(webDriver);
         Assert.assertTrue(checkOut.isDisplayCheckOutSumPage());
-        Thread.sleep(1000);
+
     }
     @And("User verify item total")
-    public void verifyTotalCheckOutSummaryPage() throws InterruptedException {
+    public void verifyTotalCheckOutSummaryPage(){
         CheckOut checkOut = new CheckOut(webDriver);
         Assert.assertTrue(checkOut.isDisplayTotal());
-        Thread.sleep(2000);
     }
-    @Then("User want to finish CheckOut in Cart")
-    public void finishCheckout() throws InterruptedException {
+    @And("User want to finish CheckOut in Cart")
+    public void finishCheckout(){
         CheckOut checkOut = new CheckOut(webDriver);
         checkOut.clickFinish();
-        Thread.sleep(1000);
     }
-    @Then("User has already on Complete the checkout")
+    @Then("User has already on Complete checkout")
     public void verifyCoCompletePage(){
         CheckOut checkOut = new CheckOut(webDriver);
         Assert.assertTrue(checkOut.isDisplayThanks());
