@@ -5,10 +5,10 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.WebElement;
 
-public class CheckOut {
+public class CheckoutFlow {
     public static WebDriver driver;
 
-    public CheckOut(WebDriver driver){
+    public CheckoutFlow(WebDriver driver){
         PageFactory.initElements(driver, this);
         this.driver = driver;
     }
@@ -40,6 +40,7 @@ public class CheckOut {
 
 
     public void clickCheckOut(){
+
         btnCheckOut.click();
     }
     public void setRemoveProduct(){

@@ -6,7 +6,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
-import org.example.LoginPage;
+import org.example.LoginFlow;
 
 public class LoginSteps {
 
@@ -18,20 +18,20 @@ public class LoginSteps {
     }
     @When("User input {string} as userName and input {string} as password")
     public void inputCredential(String userName, String password){
-        LoginPage loginPage = new LoginPage(webDriver);
-        loginPage.setUserName(userName);
-        loginPage.setPassword(password);
-        loginPage.clickLogin();
+        LoginFlow loginFlow = new LoginFlow(webDriver);
+        loginFlow.setUserName(userName);
+        loginFlow.setPassword(password);
+        loginFlow.clickLogin();
     }
     @Given("User already on login page")
     public void verifyLoginPage(){
-        LoginPage loginPage = new LoginPage(webDriver);
-        Assert.assertTrue(loginPage.verifyLoginPage());
+        LoginFlow loginFlow = new LoginFlow(webDriver);
+        Assert.assertTrue(loginFlow.verifyLoginPage());
     }
     @Then("User already on product page")
     public void verifyDashboard(){
-        LoginPage loginPage = new LoginPage(webDriver);
-        Assert.assertTrue(loginPage.verifyDshboard());
+        LoginFlow loginFlow = new LoginFlow(webDriver);
+        Assert.assertTrue(loginFlow.verifyDshboard());
     }
     @After
     public void closeBrowser() throws InterruptedException {

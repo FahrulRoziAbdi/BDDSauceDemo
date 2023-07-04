@@ -6,10 +6,10 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 
-public class CartPage {
+public class AddtoCartFlow {
     public static WebDriver driver;
 
-    public CartPage(WebDriver driver){
+    public AddtoCartFlow(WebDriver driver){
         PageFactory.initElements(driver, this);
         this.driver = driver;
     }
